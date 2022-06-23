@@ -9,16 +9,20 @@ public class MoodAnalyzer {
         this.message = message;
     }
 
-    public String analyzeMood() throws MoodAnalyzerException {
-        if (message == null) {
-            throw new MoodAnalyzerException("Message Can't Be Null");
-        } else if (message.equals("")) {
-            throw new MoodAnalyzerException("Message Can't Be Empty");
-        } else if (message.contains("Sad"))
-            return "Sad";
-        else
-            return "Happy";
+    public String analyzeMood() throws Exception {
 
+        try {
+            if (message == null) {
+                throw new MoodAnalyzerException("Message Can't Be Null ", MoodAnalyzerException.ExceptionType.NULL);
+            }
+            else if (message.contains("Sad"))
+                return "Sad";
+            else
+                return "Happy";
+        } catch (MoodAnalyzerException e) {
+            System.out.println(e);
+            return "Happy";
+        }
     }
 }
 

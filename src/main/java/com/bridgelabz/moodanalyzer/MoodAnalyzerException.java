@@ -1,6 +1,9 @@
 package com.bridgelabz.moodanalyzer;
 
 public class MoodAnalyzerException extends Throwable {
-    public MoodAnalyzerException(String message) {
+    public enum ExceptionType{
+        NULL
+    }
+    public MoodAnalyzerException(String message, ExceptionType aNull) {
     }
 }
